@@ -13,14 +13,13 @@ from typing import Optional
 from google.api_core.client_options import ClientOptions
 from google.cloud import documentai  # type: ignore
 
-# TODO(developer): Uncomment these variables before running the sample.
-# project_id = "YOUR_PROJECT_ID"
-# location = "YOUR_PROCESSOR_LOCATION" # Format is "us" or "eu"
-# processor_id = "YOUR_PROCESSOR_ID" # Create processor before running sample
-# file_path = "/path/to/local/pdf"
-# mime_type = "application/pdf" # Refer to https://cloud.google.com/document-ai/docs/file-types for supported file types
-# field_mask = "text,entities,pages.pageNumber"  # Optional. The fields to return in the Document object.
-# processor_version_id = "YOUR_PROCESSOR_VERSION_ID" # Optional. Processor version to use
+project_id = "contract-bot-397822"
+location = "eu" # Format is "us" or "eu"
+processor_id = "9871028c3be35e3b" 
+file_path = "/path/to/local/pdf"
+mime_type = "application/pdf" # Refer to https://cloud.google.com/document-ai/docs/file-types for supported file types
+^# field_mask = "text,entities,pages.pageNumber"  # Optional. The fields to return in the Document object.
+processor_version_id = "52a2671a375dce2d" 
 
 
 def process_document_sample(
@@ -33,7 +32,8 @@ def process_document_sample(
     processor_version_id: Optional[str] = None,
 ) -> None:
     # You must set the `api_endpoint` if you use a location other than "us".
-    opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
+    # opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
+    opts = ClientOptions(api_endpoint=f"{location}-https://eu-documentai.googleapis.com/v1/projects/576808041071/locations/eu/processors/9871028c3be35e3b:process")
 
     client = documentai.DocumentProcessorServiceClient(client_options=opts)
 
